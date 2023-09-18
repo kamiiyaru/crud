@@ -29,8 +29,17 @@ input {
 
 table, th, td {
   border:1px solid black;
+  margin: 10px;
 }
 
 button {
 	margin: 10px;
+}
+
+.del-message {
+	background-color: red;
+	width: 150px;
+	border:1px solid;
+	float:right;
+	margin-right:150px;
 }
