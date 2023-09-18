@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<?php include './system/favicon.php'; ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>data page</title>
 	<style type="text/css">
@@ -20,6 +21,7 @@
 </head>
 <body>
 <?php 
+session_start();
 $conn = mysqli_connect('127.0.0.1', 'root', '', 'login_user');
 
 if(!$conn) {
@@ -56,6 +58,15 @@ if ($result && $result->num_rows > 0) {
 	echo "<td><a href='edit_user.php?id=".$row['id']."'>EDIT</a></td>";
 	echo "</tr>";
 
+	if (isset($_SESSION["delete_message"])) {
+        echo "<p style='background-color: red;width: 200px;border:1px solid;float:right;margin-right:150px;font-size:20px;margin-top:50px;text-align:center;'>{$_SESSION["delete_message"]}</p>";
+        unset($_SESSION["delete_message"]);
+    }
+
+    if (isset($_SESSION["edit_message"])) {
+        echo "<p style='background-color: red;width: 250px;border:1px solid;float:right;margin-right:150px;font-size:20px;margin-top:50px;'>{$_SESSION["edit_message"]}</p>";
+        unset($_SESSION["edit_message"]);
+    }
 
 	}
     } else {
