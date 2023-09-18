@@ -2,9 +2,10 @@
 $servername = "127.0.0.1";
 $username = "root";
 $password = "";
+$db = "login_user";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, "login_user");
+$conn = new mysqli($servername, $username, $password, "$db");
 
 // Check connection
 if ($conn->connect_error) {

@@ -1,14 +1,18 @@
 <?php 
+session_start();
 	$id_user = $_GET['id'];
-	$kon = mysqli_connect("localhost", "root", "") or die("Tidak bisa terhubung ke server");
-	mysqli_select_db($kon, "login_user") or die("Tidak dapat menemukan database");
+	include 'connect.php';
 	$sql = "DELETE FROM user WHERE id = $id_user ";
-	$result = mysqli_query($kon,$sql);
+	$result = mysqli_query($conn,$sql);
+
+	if ($result) {
+		$_SESSION['delete_message'] = "data deleted id = $id_user";
+	}
 
 	if (!$result) {
 		mysql_error();
 	}
-	mysqli_close($kon);
+	mysqli_close($conn);
 	header('location: ../view_data.php');
 
  ?>
