@@ -1,0 +1,1 @@
+<link rel="icon" type="image/x-icon" href="./style/zeta_smug.png">
